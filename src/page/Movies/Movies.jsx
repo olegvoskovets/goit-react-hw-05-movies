@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import css from './Movies.module.css';
 import { getSearchMovie } from 'api/apiFetch';
 import PopularMovies from 'components/PopularMovies/PopularMovies';
-import { Link } from 'react-router-dom';
 
 const Movies = () => {
   const [search, setSearch] = useState('');
@@ -36,18 +35,7 @@ const Movies = () => {
         />
         <button type="submit">Search</button>
       </form>
-      {data.length > 0 && (
-        <PopularMovies moviews={data} />
-        // <ul>
-        //   {data.map(item => (
-        //     <li key={item.id}>
-        //       <Link to={`${item.id}`}>
-        //         {item.original_name ? item.original_name : item.original_title}
-        //       </Link>
-        //     </li>
-        //   ))}
-        // </ul>
-      )}
+      {data.length > 0 && <PopularMovies moviews={data} />}
     </div>
   );
 };

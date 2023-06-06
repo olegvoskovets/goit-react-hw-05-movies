@@ -1,7 +1,7 @@
 import { getMovieIdCredits } from 'api/apiFetch';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import css from './Cast.module.css';
+
 import CastCart from './CastCart';
 
 const Cast = () => {

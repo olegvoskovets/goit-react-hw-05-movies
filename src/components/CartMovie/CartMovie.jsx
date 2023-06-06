@@ -6,7 +6,7 @@ const CartMovie = ({ cart }) => {
     <div className={css.cart}>
       <img
         className={css.Img}
-        src={cart.backdrop_path}
+        src={`https://image.tmdb.org/t/p/original/${cart.backdrop_path}`}
         alt={cart.original_title}
       />
       <h3>{cart.original_title}</h3>

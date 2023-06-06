@@ -1,4 +1,4 @@
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import css from './MovieDetails.module.css';
 import { useEffect, useState } from 'react';
 import { getMovieId } from 'api/apiFetch';
@@ -19,10 +19,7 @@ const MovieDetails = () => {
     <div className={css.movieDetals}>
       <CartMovie cart={data} />
       <AdditionalInfo />
-      {/* <nav>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
-      </nav> */}
+
       <Outlet />
     </div>
   );

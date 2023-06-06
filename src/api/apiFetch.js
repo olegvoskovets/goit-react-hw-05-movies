@@ -1,35 +1,3 @@
-import axios from 'axios';
-
-//const API_KEY = `a5b6a326b3d57e17f5af1e0ae72e46c4`;
-// axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
-
-// const options = {
-//   api_kay: API_KEY,
-//   method: 'GET',
-//   url: 'https://api.themoviedb.org/3/trending/all/day?language=en-US',
-//   headers: { accept: 'application/json' },
-// };
-
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
-
-// export const getTrendingAll = async () => {
-//   const { data } = await axios
-//     .request(options)
-//     .then(function (response) {
-//       console.log(response.data);
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//     });
-//   return data;
-// };
 export const getTrendingAll = () => {
   const url = 'https://api.themoviedb.org/3/trending/all/day?language=en-US';
   const options = {
