@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getTrendingAll } from 'api/apiFetch';
-import { Link } from 'react-router-dom';
+
+import PopularMovies from 'components/PopularMovies/PopularMovies';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -11,17 +12,7 @@ const Home = () => {
       .catch(error => console.error(error));
   }, []);
 
-  return (
-    <ul>
-      {data.map(item => (
-        <li key={item.id}>
-          <Link to={`movies/${item.id}`}>
-            {item.original_name ? item.original_name : item.original_title}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
+  return <PopularMovies moviews={data} position={1} />;
 };
 
 export default Home;

@@ -5,7 +5,7 @@ const AdditionalInfo = () => {
   return (
     <div className={css.additionalInfo}>
       <p>Additional information</p>
-      <nav>
+      <nav className={css.link}>
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
       </nav>

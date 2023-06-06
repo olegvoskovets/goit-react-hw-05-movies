@@ -1,7 +1,7 @@
 import css from './CartMovie.module.css';
 
 const CartMovie = ({ cart }) => {
-  console.log(cart);
+  console.log('CART:  ', cart);
   return (
     <div className={css.cart}>
       <img
@@ -17,9 +17,11 @@ const CartMovie = ({ cart }) => {
       </div>
       <div>
         <h4>Genres</h4>
-        {cart.genres?.map((genre, ind) => (
-          <span key={ind}>{genre.name}</span>
-        ))}
+        <ul className={css.genres}>
+          {cart.genres?.map((genre, ind) => (
+            <span key={ind}>{genre.name}</span>
+          ))}
+        </ul>
       </div>
     </div>
   );

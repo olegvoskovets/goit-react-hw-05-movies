@@ -5,3 +5,7 @@
 .Img {
   width: 450px;
 }
+.genres {
+  display: flex;
+  gap: 15px;
+}

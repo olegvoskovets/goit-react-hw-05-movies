@@ -91,7 +91,7 @@ export const getMovieIdReviews = id => {
 };
 
 export const getSearchMovie = search => {
-  const url = `https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1`;
+  const url = `https://api.themoviedb.org/3/search/movie?query=${search}&include_adult=false&language=en-US&page=1`;
   const options = {
     method: 'GET',
     headers: {

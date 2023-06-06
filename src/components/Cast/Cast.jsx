@@ -16,7 +16,7 @@ const Cast = () => {
         console.log(err);
       });
   }, [movieId]);
-  console.log('DATA ', data);
+
   return (
     <ul>
       {data?.cast.map(cast => (

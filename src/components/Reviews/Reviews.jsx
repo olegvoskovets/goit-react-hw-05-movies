@@ -9,7 +9,7 @@ const Reviews = () => {
   useEffect(() => {
     getMovieIdReviews(movieId).then(res => setData(res));
   }, [movieId]);
-  console.log(data?.results);
+
   return (
     <>
       {!data?.results.length ? (

@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import css from './Movies.module.css';
 import { getSearchMovie } from 'api/apiFetch';
+import PopularMovies from 'components/PopularMovies/PopularMovies';
+import { Link } from 'react-router-dom';
 
 const Movies = () => {
   const [search, setSearch] = useState('');
@@ -9,12 +11,20 @@ const Movies = () => {
   const handleShange = e => {
     setSearch(e.target.value);
   };
-  console.log(search);
+
   const handleSubmit = e => {
     e.preventDefault();
-    getSearchMovie(search).then(res => setData(res));
+    getSearchMovie(search)
+      .then(res => setData(res.results))
+      .catch(error => console.log(error));
+    setSearch('');
   };
-  console.log('res = ', data);
+
+  // useEffect(() => {
+  //   getSearchMovie(search).then(res => setData(res));
+  // }, [search]);
+
+  console.log('DATA ', data.results);
   return (
     <div className={css.movies}>
       <form onSubmit={handleSubmit}>
@@ -26,6 +36,18 @@ const Movies = () => {
         />
         <button type="submit">Search</button>
       </form>
+      {data.length > 0 && (
+        <PopularMovies moviews={data} />
+        // <ul>
+        //   {data.map(item => (
+        //     <li key={item.id}>
+        //       <Link to={`${item.id}`}>
+        //         {item.original_name ? item.original_name : item.original_title}
+        //       </Link>
+        //     </li>
+        //   ))}
+        // </ul>
+      )}
     </div>
   );
 };
