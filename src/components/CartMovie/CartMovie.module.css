@@ -1,9 +1,11 @@
 .cart {
   padding: 20px 0;
+  display: flex;
+  gap: 20px;
 }
 
 .Img {
-  width: 650px;
+  width: 350px;
 }
 .genres {
   display: flex;

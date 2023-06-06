@@ -23,7 +23,6 @@ const Movies = () => {
   //   getSearchMovie(search).then(res => setData(res));
   // }, [search]);
 
-  console.log('DATA ', data.results);
   return (
     <div className={css.movies}>
       <form onSubmit={handleSubmit}>
@@ -35,6 +34,7 @@ const Movies = () => {
         />
         <button type="submit">Search</button>
       </form>
+
       {data.length > 0 && <PopularMovies moviews={data} />}
     </div>
   );

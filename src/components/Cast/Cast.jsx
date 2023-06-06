@@ -6,7 +6,7 @@ import CastCart from './CastCart';
 
 const Cast = () => {
   const { movieId } = useParams();
-  console.log('movieId', movieId);
+
   const [data, setData] = useState();
 
   useEffect(() => {
