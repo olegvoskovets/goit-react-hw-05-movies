@@ -15,7 +15,7 @@ const Reviews = () => {
       {!data?.results.length ? (
         <p>We don't have ani reviews for this movie</p>
       ) : (
-        data.results.map(review => <Review review={review} />)
+        data.results.map(review => <Review key={review.id} review={review} />)
       )}
     </>
   );

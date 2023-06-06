@@ -1,12 +1,17 @@
 import css from './CartMovie.module.css';
+import defaultImg from '../../data/img/no_img.png';
 
 const CartMovie = ({ cart }) => {
-  console.log('CART:  ', cart);
+  console.log('CART:  ', defaultImg);
   return (
     <div className={css.cart}>
       <img
         className={css.Img}
-        src={`https://image.tmdb.org/t/p/original/${cart.backdrop_path}`}
+        src={
+          cart.backdrop_path
+            ? `https://image.tmdb.org/t/p/original/${cart.backdrop_path}`
+            : defaultImg
+        }
         alt={cart.original_title}
       />
       <h3>{cart.original_title}</h3>
