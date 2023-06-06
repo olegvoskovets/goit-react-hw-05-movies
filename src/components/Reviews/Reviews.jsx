@@ -1,7 +1,26 @@
-import React from 'react';
+import { getMovieIdReviews } from 'api/apiFetch';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Review from './Review';
 
 const Reviews = () => {
-  return <div>Reviews</div>;
+  const { movieId } = useParams();
+  const [data, setData] = useState();
+  useEffect(() => {
+    getMovieIdReviews(movieId).then(res => setData(res));
+  }, [movieId]);
+  console.log(data?.results);
+  return (
+    <>
+      {!data?.results.length ? (
+        <p>We don't have ani reviews for this movie</p>
+      ) : (
+        data.results.map(review => <Review review={review} />)
+      )}
+    </>
+  );
 };
 
 export default Reviews;
+
+//
