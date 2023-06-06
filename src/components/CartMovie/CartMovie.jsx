@@ -1,6 +1,5 @@
 import css from './CartMovie.module.css';
 import defaultImg from '../../data/img/no_img.png';
-import { useEffect, useState } from 'react';
 
 const CartMovie = ({ cart }) => {
   // const [isLoading, setIsLoading] = useState(false);
