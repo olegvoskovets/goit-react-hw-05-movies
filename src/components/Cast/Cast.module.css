@@ -1,6 +1,11 @@
 .cast {
-  /* padding: 20px; */
+  padding: 20px;
+  width: 120px;
 }
 .Img {
   width: 120px;
+}
+.ulCast {
+  display: flex;
+  flex-wrap: wrap;
 }

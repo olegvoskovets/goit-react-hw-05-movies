@@ -1,27 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import css from './Movies.module.css';
 import { getSearchMovie } from 'api/apiFetch';
 import PopularMovies from 'components/PopularMovies/PopularMovies';
+import { useSearchParams } from 'react-router-dom';
+import { Loader } from 'components/Loader/Loader';
 
 const Movies = () => {
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [isLoading, setIsLoading] = useState(false);
   const handleShange = e => {
     setSearch(e.target.value);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    getSearchMovie(search)
-      .then(res => setData(res.results))
-      .catch(error => console.log(error));
-    setSearch('');
+    if (!search) return;
+    setSearchParams({ search });
+    //setSearch('');
   };
 
-  // useEffect(() => {
-  //   getSearchMovie(search).then(res => setData(res));
-  // }, [search]);
+  useEffect(() => {
+    const result = searchParams.get('search');
+    if (!result) return;
+
+    setIsLoading(true);
+    getSearchMovie(result)
+      .then(res => setData(res.results))
+      .finally(() => setIsLoading(false));
+  }, [searchParams]);
 
   return (
     <div className={css.movies}>
@@ -35,7 +43,11 @@ const Movies = () => {
         <button type="submit">Search</button>
       </form>
 
-      {data.length > 0 && <PopularMovies moviews={data} />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        data.length > 0 && <PopularMovies moviews={data} />
+      )}
     </div>
   );
 };

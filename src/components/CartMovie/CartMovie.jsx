@@ -1,27 +1,25 @@
 import css from './CartMovie.module.css';
 import defaultImg from '../../data/img/no_img.png';
+import { Link, useLocation } from 'react-router-dom';
 
 const CartMovie = ({ cart }) => {
-  // const [isLoading, setIsLoading] = useState(false);
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   if (cart.backdrop_path) {
-  //     setIsLoading(false);
-  //   }
-  // }, [cart.backdrop_path]);
+  const location = useLocation();
 
   return (
     <div className={css.cart}>
       {
-        <img
-          className={css.Img}
-          src={
-            cart.backdrop_path
-              ? `https://image.tmdb.org/t/p/original/${cart.backdrop_path}`
-              : defaultImg
-          }
-          alt={cart.original_title}
-        />
+        <div>
+          <Link to={location.state?.from ?? '/'}> Повернутись</Link>
+          <img
+            className={css.Img}
+            src={
+              cart.backdrop_path
+                ? `https://image.tmdb.org/t/p/original/${cart.backdrop_path}`
+                : defaultImg
+            }
+            alt={cart.original_title}
+          />
+        </div>
       }
 
       <div className={css.cartInfo}>
