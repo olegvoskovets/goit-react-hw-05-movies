@@ -18,7 +18,7 @@ const Movies = () => {
     e.preventDefault();
     if (!search) return;
     setSearchParams({ search });
-    //setSearch('');
+    setSearch('');
   };
 
   useEffect(() => {
