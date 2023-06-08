@@ -12,5 +12,6 @@ const AdditionalInfo = () => {
     </div>
   );
 };
+//state={{ from: location.state.from?.search }}
 
 export default AdditionalInfo;

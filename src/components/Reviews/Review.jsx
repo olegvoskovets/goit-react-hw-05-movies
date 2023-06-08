@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './Reviews.module.css';
 
 const Review = ({ review }) => {
@@ -10,3 +11,9 @@ const Review = ({ review }) => {
 };
 
 export default Review;
+Review.propTypes = {
+  review: PropTypes.shape({
+    author: PropTypes.string,
+    content: PropTypes.string,
+  }),
+};

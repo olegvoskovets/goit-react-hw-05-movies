@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './Cast.module.css';
 import defaultImg from '../../data/img/no_cast.jpg';
 
@@ -20,3 +21,11 @@ const CastCart = ({ cast }) => {
 };
 
 export default CastCart;
+
+CastCart.propTypes = {
+  cast: PropTypes.shape({
+    name: PropTypes.string,
+    character: PropTypes.string,
+    profile_path: PropTypes.string,
+  }),
+};

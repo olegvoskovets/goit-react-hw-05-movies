@@ -1,15 +1,19 @@
-import css from './CartMovie.module.css';
+import PropTypes from 'prop-types';
 import defaultImg from '../../data/img/no_img.png';
 import { Link, useLocation } from 'react-router-dom';
+import { useRef } from 'react';
+import css from './CartMovie.module.css';
 
 const CartMovie = ({ cart }) => {
   const location = useLocation();
+
+  const { current } = useRef(location.state?.from);
 
   return (
     <div className={css.cart}>
       {
         <div>
-          <Link to={location.state?.from ?? '/'}> Повернутись</Link>
+          <Link to={current ?? '/'}> Повернутись</Link>
           <img
             className={css.Img}
             src={
@@ -43,3 +47,12 @@ const CartMovie = ({ cart }) => {
 };
 
 export default CartMovie;
+
+CartMovie.propTypes = {
+  cart: PropTypes.shape({
+    backdrop_path: PropTypes.string,
+    original_title: PropTypes.string,
+    overview: PropTypes.string,
+    genres: PropTypes.array,
+  }),
+};

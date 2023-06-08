@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 
 const PopularMovies = ({ moviews }) => {
@@ -18,3 +18,12 @@ const PopularMovies = ({ moviews }) => {
 };
 
 export default PopularMovies;
+PopularMovies.propTypes = {
+  moviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      original_name: PropTypes.string,
+      original_title: PropTypes.string,
+    })
+  ),
+};
